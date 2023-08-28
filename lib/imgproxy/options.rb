@@ -16,6 +16,7 @@ require "imgproxy/options_casters/watermark"
 require "imgproxy/options_casters/jpeg_options"
 require "imgproxy/options_casters/png_options"
 require "imgproxy/options_casters/gif_options"
+require "imgproxy/options_casters/blur_region"
 
 module Imgproxy
   # Formats and regroups processing options
@@ -46,6 +47,7 @@ module Imgproxy
       contrast:               Imgproxy::OptionsCasters::Float,
       saturation:             Imgproxy::OptionsCasters::Float,
       blur:                   Imgproxy::OptionsCasters::Float,
+      blurregion:             Imgproxy::OptionsCasters::BlurRegion,
       sharpen:                Imgproxy::OptionsCasters::Float,
       pixelate:               Imgproxy::OptionsCasters::Integer,
       unsharpening:           Imgproxy::OptionsCasters::String,

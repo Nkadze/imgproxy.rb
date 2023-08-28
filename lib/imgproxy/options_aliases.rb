@@ -22,6 +22,7 @@ module Imgproxy
     contrast: :co,
     saturation: :sa,
     blur: :bl,
+    blurregion: :blurregion,
     sharpen: :sh,
     pixelate: :pix,
     unsharpening: :ush,
