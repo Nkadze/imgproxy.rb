@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require "imgproxy/trim_array"
 require "imgproxy/options_casters/string"
 require "imgproxy/options_casters/size"
 
 module Imgproxy
   module OptionsCasters
-    # Casts resize option
+    # Casts `resize` processing option
     module Resize
       using TrimArray
 

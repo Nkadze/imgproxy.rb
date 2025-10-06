@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "anyway_config"
 
 module Imgproxy
@@ -48,15 +50,17 @@ module Imgproxy
       always_encrypt_source_urls: false,
     )
 
-    coerce_types endpoint: :string,
-                 key: :string,
-                 salt: :string,
-                 raw_key: :string,
-                 raw_salt: :string,
-                 signature_size: :integer,
-                 source_url_encryption_key: :string,
-                 raw_source_url_encryption_key: :string,
-                 always_encrypt_source_urls: :boolean
+    coerce_types(
+      endpoint: :string,
+      key: :string,
+      salt: :string,
+      raw_key: :string,
+      raw_salt: :string,
+      signature_size: :integer,
+      source_url_encryption_key: :string,
+      raw_source_url_encryption_key: :string,
+      always_encrypt_source_urls: :boolean,
+    )
 
     alias_method :set_key, :key=
     alias_method :set_raw_key, :raw_key=
@@ -66,42 +70,42 @@ module Imgproxy
     alias_method :set_raw_source_url_encryption_key, :raw_source_url_encryption_key=
 
     private :set_key, :set_raw_key, :set_salt, :set_raw_salt,
-            :set_source_url_encryption_key, :set_raw_source_url_encryption_key
+      :set_source_url_encryption_key, :set_raw_source_url_encryption_key
 
     def key=(value)
-      value = value&.to_s
-      super(value)
-      set_raw_key(value && [value].pack("H*"))
+      str_value = value&.to_s
+      super(str_value)
+      set_raw_key(str_value && [str_value].pack("H*"))
     end
 
     def raw_key=(value)
-      value = value&.to_s
-      super(value)
-      set_key(value&.unpack("H*")&.first)
+      str_value = value&.to_s
+      super(str_value)
+      set_key(str_value&.unpack!("H*"))
     end
 
     def salt=(value)
-      value = value&.to_s
-      super(value)
-      set_raw_salt(value && [value].pack("H*"))
+      str_value = value&.to_s
+      super(str_value)
+      set_raw_salt(str_value && [str_value].pack("H*"))
     end
 
     def raw_salt=(value)
-      value = value&.to_s
-      super(value)
-      set_salt(value&.unpack("H*")&.first)
+      str_value = value&.to_s
+      super(str_value)
+      set_salt(str_value&.unpack1("H*"))
     end
 
     def source_url_encryption_key=(value)
-      value = value&.to_s
-      super(value)
-      set_raw_source_url_encryption_key(value && [value].pack("H*"))
+      str_value = value&.to_s
+      super(str_value)
+      set_raw_source_url_encryption_key(str_value && [str_value].pack("H*"))
     end
 
     def raw_source_url_encryption_key=(value)
-      value = value&.to_s
-      super(value)
-      set_source_url_encryption_key(value&.unpack("H*")&.first)
+      str_value = value&.to_s
+      super(str_value)
+      set_source_url_encryption_key(str_value&.unpack1("H*"))
     end
   end
 end

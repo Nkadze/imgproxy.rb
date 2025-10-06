@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require "imgproxy/options_casters/group"
 require "imgproxy/options_casters/bool"
 require "imgproxy/options_casters/integer"
 
 module Imgproxy
   module OptionsCasters
-    # Casts jpeg_options option
+    # Casts `jpeg_options` processing option
     module JpegOptions
       CASTER = Imgproxy::OptionsCasters::Group.new(
         progressive: Imgproxy::OptionsCasters::Bool,

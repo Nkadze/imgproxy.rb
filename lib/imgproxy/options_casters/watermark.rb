@@ -1,17 +1,18 @@
+# frozen_string_literal: true
+
 require "imgproxy/options_casters/group"
 require "imgproxy/options_casters/float"
 require "imgproxy/options_casters/string"
-require "imgproxy/options_casters/integer"
 
 module Imgproxy
   module OptionsCasters
-    # Casts string option
+    # Casts `watermark` processing option
     module Watermark
       CASTER = Imgproxy::OptionsCasters::Group.new(
         opacity: Imgproxy::OptionsCasters::Float,
         position: Imgproxy::OptionsCasters::String,
-        x_offset: Imgproxy::OptionsCasters::Integer,
-        y_offset: Imgproxy::OptionsCasters::Integer,
+        x_offset: Imgproxy::OptionsCasters::Float,
+        y_offset: Imgproxy::OptionsCasters::Float,
         scale: Imgproxy::OptionsCasters::Float,
       ).freeze
 

@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require "imgproxy/options_casters/group"
 require "imgproxy/options_casters/integer"
 require "imgproxy/options_casters/float"
 
 module Imgproxy
   module OptionsCasters
-    # Casts gravity option
+    # Casts `adjust` processing option
     module Adjust
       CASTER = Imgproxy::OptionsCasters::Group.new(
         brightness: Imgproxy::OptionsCasters::Integer,

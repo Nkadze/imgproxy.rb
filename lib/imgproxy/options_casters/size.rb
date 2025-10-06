@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "imgproxy/trim_array"
 require "imgproxy/options_casters/integer"
 require "imgproxy/options_casters/bool"
@@ -5,7 +7,7 @@ require "imgproxy/options_casters/extend"
 
 module Imgproxy
   module OptionsCasters
-    # Casts size option
+    # Casts `size` processing option
     module Size
       using TrimArray
 

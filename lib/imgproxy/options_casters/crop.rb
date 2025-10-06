@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require "imgproxy/trim_array"
 require "imgproxy/options_casters/float"
 require "imgproxy/options_casters/gravity"
 
 module Imgproxy
   module OptionsCasters
-    # Casts crop option
+    # Casts `crop` processing/info option
     module Crop
       using TrimArray
 
